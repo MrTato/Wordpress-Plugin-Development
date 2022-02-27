@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package BayardoPlugin
  */
@@ -12,3 +13,14 @@ Author URI: http://bayardolopez.com
 License: GPLv2 or later
 Text Domain: bayardo-plugin
 */
+
+if (!defined('ABSPATH')) {
+    die;
+}
+
+defined('ABSPATH') or die('No access');
+
+if (!function_exists('add_action')) {
+    echo 'No access';
+    exit;
+}
