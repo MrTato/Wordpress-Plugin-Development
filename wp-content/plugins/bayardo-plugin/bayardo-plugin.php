@@ -18,10 +18,16 @@ defined('ABSPATH') or die('No access');
 
 class BayardoPlugin
 {
+    function __construct()
+    {
+        add_action('init', array($this, 'custom_post_type'));
+    }
     function activate()
     {
         // generated a CPT
+        $this->custom_post_type();
         // flush rewrite rules
+        flush_rewrite_rules();
     }
 
     function deactivate()
@@ -33,6 +39,10 @@ class BayardoPlugin
     {
         // delete CPT
         // delete all the plugin data from the DB
+    }
+
+    function custom_post_type() {
+        register_post_type('book', ['public' => true, 'label' => 'Books']);
     }
 }
 
